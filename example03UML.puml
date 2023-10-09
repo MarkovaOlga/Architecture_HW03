@@ -1,0 +1,33 @@
+@startuml
+interface example3.ILine {
+~ void drawLine()
+}
+class example3.Rectangle {
++ void drawRect()
+}
+interface example3.IRect {
+~ void drawRect()
+}
+class example3.Line {
++ void drawLine()
+}
+interface example3.ICircle {
+~ void drawCircle()
+}
+class example3.Main {
++ {static} void main(String[])
+}
+class example3.Circle {
++ void drawCircle()
+}
+
+'Реализация интерфейсов:
+example3.IRect <|.. example3.Rectangle
+example3.ILine <|.. example3.Line
+example3.ICircle <|.. example3.Circle
+
+'Зависимость:
+Main ..> Circle : creates
+Main ..> Rectangle : creates
+Main ..> Line : creates
+@enduml

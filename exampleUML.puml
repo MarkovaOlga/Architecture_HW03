@@ -1,0 +1,28 @@
+@startuml
+class example1.Computer {
+~ String name
+~ String processor
+~ int memory_size
+~ String operational_system
+}
+class example1.SaveToDatabase {
++ void save(String,Computer)
+}
+class example1.SaveToFile {
++ void save(String,Computer)
+}
+interface example1.ICanSave {
+~ void save(String,Computer)
+}
+class example1.Main {
++ {static} void main(String[])
+}
+
+'Реализация интерфейсов
+example1.ICanSave <|.. example1.SaveToDatabase
+example1.ICanSave <|.. example1.SaveToFile
+
+'Зависимость: Main зависит от Computer и SaveToDatabase для выполнения
+Main ..> Computer : creates
+Main ..> SaveToDatabase : creates
+@enduml

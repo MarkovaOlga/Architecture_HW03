@@ -3,13 +3,13 @@ package example1;
 public class Computer {
     String name;
     String processor;
-    int memory_size;
-    String operational_system;
+    int memorySize;
+    String operationalSystem;
 
-    public Computer(String name, String processor, int memory_size, String operational_system) {
+    public Computer(String name, String processor, int memorySize, String operationalSystem) {
         this.name = name;
         this.processor = processor;
-        this.memory_size = memory_size;
-        this.operational_system = operational_system;
+        this.memorySize = memorySize;
+        this.operationalSystem = operationalSystem;
     }
 }

@@ -1,0 +1,35 @@
+@startuml
+class example2.MySQL {
++ void save(IForm)
+}
+class example2.WebFramework {
++ void save(IForm)
+}
+class example2.Main {
++ {static} void main(String[])
+}
+interface example2.IForm {
+}
+interface example2.ISQL {
++ void save(IForm)
+}
+class example2.ModelForm {
+~ int id
+~ int old
+~ String fio
+}
+
+'Реализация интерфейсов
+example2.ISQL <|.. example2.MySQL
+example2.IForm <|.. example2.ModelForm
+
+' Агрегация (Aggregation):
+WebFramework "1" o-- "0.." MySQL
+
+'Зависимость: Main зависит от ModelForm и WebFramework для выполнения
+'Метод save в WebFramework и MySQL использует IForm
+Main ..> ModelForm : creates
+Main ..> WebFramework : creates
+WebFramework ..> IForm : uses
+MySQL ..> IForm : uses
+@enduml
